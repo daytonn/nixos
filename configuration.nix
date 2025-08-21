@@ -8,14 +8,12 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      <home-manager/nixos>
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "Circuitron"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -61,6 +59,7 @@
 
   # Enable PCSCD for Yubico Authenticator
   services.pcscd.enable = true;
+
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -130,22 +129,6 @@
       zeal
       zoom-us
     ];
-  };
-  home-manager.useGlobalPkgs = true;
-  home-manager.users.daytonn = { pkgs, ... }: {
-
-    home.packages = with pkgs; [];
-    programs.bash.enable = false;
-
-
-    # This value determines the Home Manager release that your configuration is
-    # compatible with. This helps avoid breakage when a new Home Manager release
-    # introduces backwards incompatible changes.
-    #
-    # You should not change this value, even if you update Home Manager. If you do
-    # want to update the value, then make sure to first check the Home Manager
-    # release notes.
-    home.stateVersion = "25.05"; # Please read the comment before changing.
   };
 
   fonts.packages = with pkgs; [
