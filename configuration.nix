@@ -78,7 +78,7 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
+  services.flatpak.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.daytonn = {
     isNormalUser = true;
@@ -87,7 +87,6 @@
     packages = with pkgs; [
       albert
       asdf-vm
-      bambu-studio
       bash-completion
       bat
       blender
@@ -101,10 +100,22 @@
       gimp3-with-plugins
       git
       gnome-extension-manager
+      gnomeExtensions.gtile
+      gnomeExtensions.auto-move-windows
+      gnomeExtensions.burn-my-windows
+      gnomeExtensions.compiz-windows-effect
+      gnomeExtensions.force-quit
+      gnomeExtensions.notification-banner-reloaded
+      gnomeExtensions.reboottouefi
+      gnomeExtensions.status-area-horizontal-spacing
+      gnomeExtensions.emoji-copy
+      gnomeExtensions.weather-oclock
+      gnomeExtensions.weeks-start-on-monday-again
+      gnomeExtensions.user-themes
       gnome-tweaks
       inkscape-with-extensions
-      libreoffice-still
       joplin
+      libreoffice-still
       mcfly
       neofetch
       openssh
