@@ -102,7 +102,6 @@
     extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       albert
-      asdf-vm
       autoconf
       automake
       bash-completion
