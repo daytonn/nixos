@@ -101,6 +101,36 @@
     description = "Dayton Nolan";
     extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [
+      arc-theme
+      materia-theme
+      orchis-theme
+      colloid-gtk-theme
+      nordic
+      whitesur-gtk-theme
+      
+      catppuccin-gtk
+      
+      palenight-theme
+      
+      numix-gtk-theme
+      gnome-themes-extra
+
+
+      papirus-icon-theme
+      tela-icon-theme
+      fluent-icon-theme
+      numix-icon-theme
+      moka-icon-theme
+      
+      adwaita-icon-theme
+      pantheon.elementary-icon-theme
+      
+      bibata-cursors
+      numix-cursor-theme
+      capitaine-cursors
+      catppuccin-cursors
+      vanilla-dmz 
+
       albert
       autoconf
       automake
@@ -180,6 +210,8 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
+    inter
+    roboto 
   ];
 
   programs.firefox.enable = true;
