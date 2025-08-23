@@ -115,7 +115,9 @@
       gnome-tweaks
       inkscape-with-extensions
       joplin
+      jq
       libreoffice-still
+      lmstudio
       mcfly
       neofetch
       openssh
@@ -137,6 +139,7 @@
       upscayl
       vlc
       xclip
+      xdg-utils
       zeal
       zoom-us
     ];
