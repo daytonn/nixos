@@ -102,6 +102,7 @@
       proton-pass
       protonmail-desktop
       protonvpn-gui
+      refine
       rhythmbox
       spotify
       stacer
