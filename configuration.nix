@@ -31,6 +31,10 @@
 
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.videoDrivers = ["nvidia"];
+  hardware.nvidia = {
+    open = true;  # Use open-source kernel modules (recommended for RTX/GTX 16xx)
+  };
 
   services.xserver.xkb = {
     layout = "us";
@@ -133,6 +137,9 @@
   nixpkgs.config.permittedInsecurePackages = [
                 "openssl-1.1.1w"
               ];
+
+  programs.appimage.enable = true;
+  programs.appimage.binfmt = true;
 
   nix.settings.experimental-features = [ "flakes" "nix-command" ];
 
