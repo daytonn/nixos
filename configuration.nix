@@ -8,7 +8,7 @@
 
   boot.loader.systemd-boot.enable = true;
 
-  networking.hostName = "Circuitron";
+  networking.hostName = "Circuitron"; 
   networking.networkmanager.enable = true;
 
   time.timeZone = "America/Phoenix";
@@ -31,6 +31,36 @@
 
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.gnome = {
+    extraGSettingsOverrides = ''
+      [org.gnome.desktop.peripherals.keyboard]
+      delay=250
+      repeat-interval=15
+
+      [org.gnome.desktop.peripherals.mouse]
+      natural-scroll=true
+
+      [org.gnome.shell.keybindings]
+      screenshot=['<Shift><Alt>3']
+      show-screenshot-ui=['<Shift><Alt>4']
+      screenshot-window=['<Shift><Alt>5']
+      show-screen-recording-ui=[]
+
+      [org.gnome.desktop.interface]
+      accent-color='teal'
+      clock-format='12h'
+      clock-show-weekday=true
+      color-scheme='prefer-dark'
+
+      [org.gnome.desktop.calendar]
+      show-weekdate=true
+    '';
+
+    extraGSettingsOverridePackages = [
+      pkgs.gsettings-desktop-schemas # for org.gnome.desktop
+    ];
+  };
+
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     open = true;  # Use open-source kernel modules (recommended for RTX/GTX 16xx)
@@ -40,6 +70,8 @@
     layout = "us";
     variant = "";
   };
+
+  services.gnome.core-developer-tools.enable = true;
 
   services.printing.enable = true;
 
@@ -59,50 +91,68 @@
 
   services.flatpak.enable = true;
 
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = true;
+  };
+
   users.users.daytonn = {
     isNormalUser = true;
     description = "Dayton Nolan";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       albert
       asdf-vm
+      autoconf
+      automake
       bash-completion
       bat
+      bison
       blender
       brave
+      bzip2
       code-cursor-fhs
       dbeaver-bin
+      dconf-editor
+      docker
       eza
       flameshot
       freecad
       fzf
+      gcc
       gimp3-with-plugins
       git
       gnome-extension-manager
-      gnomeExtensions.gtile
+      gnome-tweaks
       gnomeExtensions.auto-move-windows
       gnomeExtensions.burn-my-windows
       gnomeExtensions.compiz-windows-effect
+      gnomeExtensions.docker
+      gnomeExtensions.emoji-copy
       gnomeExtensions.force-quit
+      gnomeExtensions.gtile
       gnomeExtensions.notification-banner-reloaded
       gnomeExtensions.reboottouefi
       gnomeExtensions.status-area-horizontal-spacing
-      gnomeExtensions.emoji-copy
+      gnomeExtensions.user-themes
       gnomeExtensions.weather-oclock
       gnomeExtensions.weeks-start-on-monday-again
-      gnomeExtensions.user-themes
-      gnome-tweaks
+      gnumake
       inkscape-with-extensions
       joplin
       jq
+      libiconv
       libreoffice-still
+      libtool
       lmstudio
+      makeWrapper
       mcfly
       neofetch
       openssh
       pcsclite
-      pinentry-gnome3
       pinentry-curses
+      pinentry-gnome3
+      pkg-config
       proton-pass
       protonmail-desktop
       protonvpn-gui
@@ -115,13 +165,15 @@
       sublime4
       telegram-desktop
       terminator
+      texlivePackages.rpgicons
       thefuck
-      usbimager
-      yubioath-flutter
+      unzip
       upscayl
+      usbimager
       vlc
       xclip
       xdg-utils
+      yubioath-flutter
       zeal
       zoom-us
     ];
@@ -146,7 +198,15 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
+    git
   ];
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
 
   programs.gnupg.agent = {
    enable = true;
