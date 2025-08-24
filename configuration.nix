@@ -172,20 +172,11 @@
     adwaita-icon-theme
     albert
     arc-theme
-    autoconf
-    automake
     bash-completion
     bat
-    bibata-cursors
-    bison
     blender
     brave
-    bzip2
-    capitaine-cursors
-    catppuccin-cursors
-    catppuccin-gtk
     code-cursor-fhs
-    colloid-gtk-theme
     dbeaver-bin
     dconf-editor
     docker
@@ -194,7 +185,6 @@
     fluent-icon-theme
     freecad
     fzf
-    gcc
     gimp3-with-plugins
     gnome-extension-manager
     gnomeExtensions.auto-move-windows
@@ -212,32 +202,16 @@
     gnomeExtensions.weeks-start-on-monday-again
     gnome-themes-extra
     gnome-tweaks
-    gnumake
     inkscape-with-extensions
     joplin
     jq
-    libiconv
     libreoffice-still
-    libtool
     lmstudio
-    makeWrapper
-    materia-theme
     mcfly
-    moka-icon-theme
     neofetch
-    nordic
-    numix-cursor-theme
-    numix-gtk-theme
-    numix-icon-theme
-    openssh
-    orchis-theme
-    palenight-theme
-    pantheon.elementary-icon-theme
-    papirus-icon-theme
     pcsclite
     pinentry-curses
     pinentry-gnome3
-    pkg-config
     protonmail-desktop
     proton-pass
     protonvpn-gui
@@ -251,15 +225,11 @@
     tela-icon-theme
     telegram-desktop
     terminator
-    texlivePackages.rpgicons
     thefuck
-    unzip
     upscayl
     usbimager
-    vanilla-dmz
     virtualbox
     vlc
-    whitesur-gtk-theme
     xclip
     xdg-utils
     yubioath-flutter
@@ -287,9 +257,31 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
+    autoconf
+    automake
+    bison
+    bzip2
+    gcc
     git
+    vim
+    wget
+    gnumake
+    libiconv
+    libtool
+    makeWrapper
+    openssh
+    pkg-config
+    unzip
+  ];
+
+  environment.gnome.excludePackages = with pkgs; [
+    epiphany
+    gedit
+    totem
+    yelp
+    geary
+    seahorse
+    gnome-contacts
   ];
 
   programs.steam = {
