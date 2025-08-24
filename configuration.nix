@@ -33,6 +33,9 @@
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.desktopManager.gnome = {
     extraGSettingsOverrides = ''
+      [org.gnome.shell]
+      enabled-extensions=['auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'burn-my-windows@schneegans.github.com', 'compiz-windows-effect@hermes83.github.com', 'emoji-copy@felipeftn', 'fq@megh', 'gTile@vibou', 'notification-banner-reloaded@marcinjakubowski.github.com', 'reboottouefi@ubaygd.com', 'status-area-horizontal-spacing@mathematical.coffee.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'weatheroclock@CleoMenezesJr.github.io', 'weeks-start-on-monday@extensions.gnome-shell.fifi.org', 'status-icons@gnome-shell-extensions.gcampax.github.com', 'docker@stickman_0x00.com']
+
       [org.gnome.desktop.peripherals.keyboard]
       delay=250
       repeat-interval=15
@@ -41,19 +44,84 @@
       natural-scroll=true
 
       [org.gnome.shell.keybindings]
+      focus-active-notification=[]
+      open-new-window-application-1=[]
+      open-new-window-application-2=[]
+      open-new-window-application-3=[]
+      open-new-window-application-4=[]
+      open-new-window-application-5=[]
+      open-new-window-application-6=[]
+      open-new-window-application-7=[]
+      open-new-window-application-8=[]
+      open-new-window-application-9=[]
       screenshot=['<Shift><Alt>3']
       show-screenshot-ui=['<Shift><Alt>4']
       screenshot-window=['<Shift><Alt>5']
       show-screen-recording-ui=[]
+      shift-overview-down=[]
+      shift-overview-up=[]
+      switch-to-application-1=[]
+      switch-to-application-2=[]
+      switch-to-application-3=[]
+      switch-to-application-4=[]
+      switch-to-application-5=[]
+      switch-to-application-6=[]
+      switch-to-application-7=[]
+      switch-to-application-8=[]
+      switch-to-application-9=[]
+      toggle-application-view=[]
+      toggle-message-tray=[]
+      toggle-quick-settings=[]
 
       [org.gnome.desktop.interface]
       accent-color='teal'
       clock-format='12h'
       clock-show-weekday=true
       color-scheme='prefer-dark'
+      cursor-theme='Adwaita'
+      font-antialiasing='grayscale'
+      font-hinting='slight'
+      gtk-theme='Adwaita'
+      icon-theme='Tela-manjaro-light'
+
+      [org.gnome.desktop.wm.preferences]
+      action-double-click-titlebar='toggle-maximize'
+      action-middle-click-titlebar='none'
+      action-right-click-titlebar='menu'
+      button-layout='close:appmenu'
+      focus-mode='click'
 
       [org.gnome.desktop.calendar]
       show-weekdate=true
+
+      [org.gnome.desktop.wm.keybindings]
+      begin-move=[]
+      begin-resize=[]
+      close=['<Alt>q']
+      cycle-group-backward=[]
+      cycle-group=[]
+      maximize=[]
+      minimize=['<Alt>h']
+      move-to-monitor-down=[]
+      move-to-monitor-left=[]
+      move-to-monitor-right=[]
+      move-to-monitor-up=[]
+      move-to-workspace-1=[]
+      move-to-workspace-last=[]
+      move-to-workspace-left=[]
+      move-to-workspace-right=[]
+      switch-input-source-backward=[]
+      switch-input-source=[]
+      switch-panels-backward=[]
+      switch-panels=[]
+      switch-to-workspace-1=[]
+      switch-to-workspace-last=[]
+      switch-to-workspace-left=[]
+      switch-to-workspace-right=[]
+      unmaximize=[]
+
+      [org.gnome.desktop.input-sources]
+      xkb-options=['caps:ctrl_modifier']
     '';
 
     extraGSettingsOverridePackages = [
@@ -128,7 +196,6 @@
     fzf
     gcc
     gimp3-with-plugins
-    git
     gnome-extension-manager
     gnomeExtensions.auto-move-windows
     gnomeExtensions.burn-my-windows
@@ -190,6 +257,7 @@
     upscayl
     usbimager
     vanilla-dmz
+    virtualbox
     vlc
     whitesur-gtk-theme
     xclip
@@ -216,7 +284,7 @@
   programs.appimage.enable = true;
   programs.appimage.binfmt = true;
 
-  nix.settings.experimental-features = [ "flakes" "nix-command" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
