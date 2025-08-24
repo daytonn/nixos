@@ -263,15 +263,16 @@
     bzip2
     gcc
     git
-    vim
-    wget
     gnumake
+    inotify-tools
     libiconv
     libtool
     makeWrapper
     openssh
     pkg-config
     unzip
+    vim
+    wget
   ];
 
   environment.gnome.excludePackages = with pkgs; [
