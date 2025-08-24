@@ -129,7 +129,6 @@
     gcc
     gimp3-with-plugins
     git
-    gnome-boxes
     gnome-extension-manager
     gnomeExtensions.auto-move-windows
     gnomeExtensions.burn-my-windows
