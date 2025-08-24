@@ -133,6 +133,10 @@
   hardware.nvidia = {
     open = true;  # Use open-source kernel modules (recommended for RTX/GTX 16xx)
   };
+  hardware.graphics.enable = true;
+  hardware.graphics.extraPackages = [
+    pkgs.mesa
+  ];
 
   services.xserver.xkb = {
     layout = "us";
@@ -179,8 +183,10 @@
     code-cursor-fhs
     dbeaver-bin
     dconf-editor
+    discord
     docker
     eza
+    firefox-devedition
     flameshot
     fluent-icon-theme
     freecad
@@ -226,6 +232,7 @@
     telegram-desktop
     terminator
     thefuck
+    ungoogled-chromium
     upscayl
     usbimager
     virtualbox
