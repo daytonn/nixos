@@ -192,6 +192,7 @@
     freecad
     fzf
     gimp3-with-plugins
+    gnome-decoder
     gnome-extension-manager
     gnomeExtensions.auto-move-windows
     gnomeExtensions.burn-my-windows
