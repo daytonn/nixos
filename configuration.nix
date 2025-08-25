@@ -209,6 +209,7 @@
     gnomeExtensions.weeks-start-on-monday-again
     gnome-themes-extra
     gnome-tweaks
+    impression
     inkscape-with-extensions
     joplin
     jq
