@@ -26,6 +26,7 @@ A comprehensive NixOS configuration for a development and gaming workstation wit
 - **Build tools**: GCC, Make, Autotools, pkg-config
 - **Containerization**: Docker with auto-start
 - **Shell enhancements**: Starship, fzf, mcfly, bash-completion
+- **Shell linting**: ShellCheck for shell script validation
 
 ### Creative & Productivity
 - **Graphics**: Blender, GIMP, Inkscape, FreeCAD
@@ -33,6 +34,7 @@ A comprehensive NixOS configuration for a development and gaming workstation wit
 - **Media**: VLC, Rhythmbox, Spotify
 - **Communication**: Discord, Telegram, Zoom
 - **Note-taking**: Joplin
+- **System tools**: Impression for creating bootable USB drives
 
 ### Gaming & Entertainment
 - **Steam** with remote play and dedicated server support
