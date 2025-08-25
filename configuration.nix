@@ -224,6 +224,7 @@
     protonvpn-gui
     refine
     rhythmbox
+    shellcheck
     spotify
     stacer
     starship
