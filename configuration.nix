@@ -213,6 +213,7 @@
     inkscape-with-extensions
     joplin
     jq
+    kooha
     libreoffice-still
     lmstudio
     mcfly
