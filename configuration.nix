@@ -185,6 +185,7 @@
     dconf-editor
     discord
     docker
+    exhibit
     eza
     firefox-devedition
     flameshot
