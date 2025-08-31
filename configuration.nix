@@ -218,6 +218,7 @@
     libreoffice-still
     lmstudio
     mcfly
+    mdcat
     neofetch
     pcsclite
     pinentry-curses
@@ -233,6 +234,7 @@
     starship
     steam
     sublime4
+    sushi
     tela-icon-theme
     telegram-desktop
     terminator
