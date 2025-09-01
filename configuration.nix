@@ -33,6 +33,9 @@
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.desktopManager.gnome = {
     extraGSettingsOverrides = ''
+      [org.gnome.mutter]
+      check-alive-timeout=60000
+
       [org.gnome.shell]
       enabled-extensions=['auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'burn-my-windows@schneegans.github.com', 'compiz-windows-effect@hermes83.github.com', 'emoji-copy@felipeftn', 'fq@megh', 'gTile@vibou', 'notification-banner-reloaded@marcinjakubowski.github.com', 'reboottouefi@ubaygd.com', 'status-area-horizontal-spacing@mathematical.coffee.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'weatheroclock@CleoMenezesJr.github.io', 'weeks-start-on-monday@extensions.gnome-shell.fifi.org', 'status-icons@gnome-shell-extensions.gcampax.github.com', 'docker@stickman_0x00.com']
 
@@ -239,6 +242,7 @@
     telegram-desktop
     terminator
     thefuck
+    transmission_4-gtk
     ungoogled-chromium
     upscayl
     usbimager
