@@ -179,6 +179,7 @@
     adwaita-icon-theme
     albert
     arc-theme
+    asdf-vm
     bash-completion
     bat
     blender
