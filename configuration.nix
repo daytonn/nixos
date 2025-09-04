@@ -244,6 +244,7 @@
     terminator
     thefuck
     transmission_4-gtk
+    typora
     ungoogled-chromium
     upscayl
     usbimager
