@@ -177,11 +177,11 @@
     extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [
     adwaita-icon-theme
-    albert
     arc-theme
     asdf-vm
     bash-completion
     bat
+    bc
     blender
     brave
     code-cursor-fhs
@@ -197,6 +197,7 @@
     freecad
     fzf
     gimp3-with-plugins
+    git
     gnome-decoder
     gnome-extension-manager
     gnomeExtensions.auto-move-windows
@@ -239,6 +240,7 @@
     steam
     sublime4
     sushi
+    synapse
     tela-icon-theme
     telegram-desktop
     terminator
