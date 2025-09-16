@@ -184,7 +184,7 @@
     bc
     blender
     brave
-    code-cursor-fhs
+    cursor
     dbeaver-bin
     dconf-editor
     discord
@@ -275,6 +275,12 @@
 
   programs.appimage.enable = true;
   programs.appimage.binfmt = true;
+  nixpkgs.overlays = [
+    (final: prev: {
+      cursor = prev.callPackage /home/daytonn/.config/nixpkgs/packages/cursor.nix {};
+    })
+  ];
+  
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
