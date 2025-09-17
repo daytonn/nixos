@@ -266,7 +266,7 @@
     roboto 
   ];
 
-  programs.firefox.enable = true;
+  programs.firefox.enable = false;
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
