@@ -166,6 +166,29 @@
 
   services.flatpak.enable = true;
 
+  # Vicinae systemd user service
+  systemd.user.services.vicinae = {
+    description = "Vicinae Server";
+    wantedBy = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.vicinae}/bin/vicinae server";
+      Restart = "always";
+      RestartSec = 5;
+      Environment = [
+        "DISPLAY=:0"
+        "WAYLAND_DISPLAY=wayland-0"
+        "XDG_SESSION_TYPE=wayland"
+        "QT_QPA_PLATFORM=wayland"
+        "VICINAE_DISABLE_HUD=1"
+      ];
+      WorkingDirectory = "/home/daytonn";
+      StandardOutput = "journal";
+      StandardError = "journal";
+    };
+  };
+
   virtualisation.docker = {
     enable = true;
     enableOnBoot = true;
@@ -240,7 +263,6 @@
     steam
     sublime4
     sushi
-    synapse
     tela-icon-theme
     telegram-desktop
     terminator
@@ -250,6 +272,7 @@
     ungoogled-chromium
     upscayl
     usbimager
+    vicinae
     virtualbox
     vlc
     xclip
@@ -278,6 +301,7 @@
   nixpkgs.overlays = [
     (final: prev: {
       cursor = prev.callPackage /home/daytonn/.config/nixpkgs/packages/cursor.nix {};
+      vicinae = prev.callPackage /home/daytonn/.config/nixpkgs/packages/vicinae.nix {};
     })
   ];
   
