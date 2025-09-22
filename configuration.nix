@@ -150,6 +150,12 @@
 
   services.printing.enable = true;
 
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
   services.pcscd.enable = true;
 
   services.pulseaudio.enable = false;
@@ -165,29 +171,6 @@
   };
 
   services.flatpak.enable = true;
-
-  # Vicinae systemd user service
-  systemd.user.services.vicinae = {
-    description = "Vicinae Server";
-    wantedBy = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${pkgs.vicinae}/bin/vicinae server";
-      Restart = "always";
-      RestartSec = 5;
-      Environment = [
-        "DISPLAY=:0"
-        "WAYLAND_DISPLAY=wayland-0"
-        "XDG_SESSION_TYPE=wayland"
-        "QT_QPA_PLATFORM=wayland"
-        "VICINAE_DISABLE_HUD=1"
-      ];
-      WorkingDirectory = "/home/daytonn";
-      StandardOutput = "journal";
-      StandardError = "journal";
-    };
-  };
 
   virtualisation.docker = {
     enable = true;
@@ -269,10 +252,10 @@
     thefuck
     transmission_4-gtk
     typora
+    ulauncher
     ungoogled-chromium
     upscayl
     usbimager
-    vicinae
     virtualbox
     vlc
     xclip
@@ -304,7 +287,6 @@
       vicinae = prev.callPackage /home/daytonn/.config/nixpkgs/packages/vicinae.nix {};
     })
   ];
-  
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
